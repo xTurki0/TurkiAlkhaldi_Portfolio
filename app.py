@@ -1,11 +1,13 @@
-from flask import Flask
+from flask import Flask,render_template
+from database import load_projects_from_db
 
-app=Flask(__name__)
+app = Flask(__name__)
 
 @app.route("/")
 
-def hello():
-  return "<h1>TurkiAlkhaldi</h1>"
+def hello_world():
+    projects=load_projects_from_db()
+    return render_template("home.html",projects=projects)
 
-if __name__=="__main__":
+if __name__ == "__main__":
   app.run(host='0.0.0.0',debug=True)
