@@ -1,13 +1,14 @@
-from flask import Flask,render_template
-from database import load_projects_from_db
+@app.route('/message')
+def message():
+  return render_template('contactus.html')
 
-app = Flask(__name__)
 
-@app.route("/")
+@app.route("/message_submitted", methods=['POST'])
+def message_submitted():
+  data = request.form
+  add_message_to_db(data)
+  return render_template('message_submitted.html', data=data)
 
-def hello_world():
-    projects=load_projects_from_db()
-    return render_template("home.html",projects=projects)
 
-if __name__ == "__main__":
-  app.run(host='0.0.0.0',debug=True)
+if _name_ == '_main_':
+  app.run(host='0.0.0.0', debug=True)
