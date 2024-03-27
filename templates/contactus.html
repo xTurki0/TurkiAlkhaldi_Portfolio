@@ -4,7 +4,7 @@
 <body>
   {%include 'banner.html'%}
 <h4>Send me Message</h4>
-<form action="/messagesub" , method="post">
+<form action="/message_submitted" , method="post">
   <div class = mb-2>
     <lable>Full name</lable><br>
     <input type = "text" name = "full_name" placeholder = "Turki Alkhaldi">
@@ -19,6 +19,6 @@
     <label>Message</label><br>
     <textarea type = "text" name = "message"></textarea>
   </div>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Send">
 </form>
   </body>
